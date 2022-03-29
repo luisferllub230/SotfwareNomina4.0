@@ -24,10 +24,5 @@ namespace CapaAdmin.Controllers
         {
             return View();
         }
-
-        public ActionResult GestionDeduccion()
-        {
-            return View();
-        }
     }
 }
