@@ -1,6 +1,6 @@
 # SotfwareNomina4.0
 
-#### PROYECTO DE PROGRAMACION 2 - _DESARROLLO DE UN SISTEMA DE NOMINA_
+## PROYECTO DE PROGRAMACION 2 - _DESARROLLO DE UN SISTEMA DE NOMINA_
 
 
 
@@ -8,7 +8,6 @@
 
 ![logo__min__blanco](https://user-images.githubusercontent.com/84217331/160298340-0e320067-2a89-4cf7-8d17-51918d91a6b2.png)
 
-#--------------------------------------#
 
 ## PARTICIPANTES
 
@@ -21,7 +20,6 @@
     4- LUIS ALEXANDER FERMIN REYNOSO
 
 
-#--------------------------------------#
 
 ## EL SOFTWARE ESTA DESARROLLADO EN 
 
@@ -55,9 +53,9 @@
       SQL SERVER MANAGEMENT STUDIO 
 
 
-#-- FUNCION DEL PROYECTO --#
+## FUNCION DEL PROYECTO
 
-## LA FUNCION DEL SISTEMA DE NOMINA ES PODER HACER:
+#### LA FUNCION DEL SISTEMA DE NOMINA ES PODER HACER:
 
        Gestión de empleados
        Gestión de Departamentos
@@ -68,6 +66,25 @@
        Una consulta por criterios (ej: empleados por departamentos y puestos)
        Un Reporte de Nómina x Departamento    
      
+ 
+ -----
+ 
+ # Avances:
+ 
+ - CapaAdmin:
+    `En la CapaAdmin se logro avanzar en el layout, las vistas y los controladores `
+    
+    ![image](https://user-images.githubusercontent.com/84060723/160318387-d4057472-6b11-4639-a4e3-7f0c3092d274.png)
+
+    ![image](https://user-images.githubusercontent.com/84060723/160318434-c8ef08df-7f00-4fee-898f-1b2f7f9bc38c.png)
+
+ 
+ 
+          
+ 
+ 
+ 
+ 
  
 ####  _NOTA: ESTE ES NUESTRO 4TO REPOSITORIO XD_
     
