@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FENIX_NOMINAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="ID_DEPAR" />
+    </Key>
+    <Property Name="ID_DEPAR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="UBICACION" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="RESPONSABLE_AREA" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="ID_EMPLE" />
+    </Key>
+    <Property Name="ID_EMPLE" Type="int" Nullable="false" />
+    <Property Name="CEDULA" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SALARIO" Type="int" Nullable="false" />
+    <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+    <Property Name="ID_PUESTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NOMINA" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PUESTO">
+    <Key>
+      <PropertyRef Name="ID_PUES" />
+    </Key>
+    <Property Name="ID_PUES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NIVEL_RIESGO" Type="int" Nullable="false" />
+    <Property Name="NIVEL_MN_SALARIO" Type="int" Nullable="false" />
+    <Property Name="NIVEL_MX_SALARIO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RG_TRANSACCIONES">
+    <Key>
+      <PropertyRef Name="ID_RGTRANS" />
+    </Key>
+    <Property Name="ID_RGTRANS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_EMPLEADO" Type="int" Nullable="false" />
+    <Property Name="ID_INGRESO" Type="int" Nullable="false" />
+    <Property Name="ID_DEDUCCION" Type="int" Nullable="false" />
+    <Property Name="ID_TIPO_TRANSACCION" Type="int" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="MONTO" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ESTADO" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="SOLICITUD">
+    <Key>
+      <PropertyRef Name="ID_NOTI" />
+    </Key>
+    <Property Name="ID_NOTI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="APELLIDO" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="TITULO" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="MENSAJE" Type="nvarchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="TIPO_INGRESO">
+    <Key>
+      <PropertyRef Name="ID_INGR" />
+    </Key>
+    <Property Name="ID_INGR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DEPENDE_SALARIO" Type="nvarchar" MaxLength="30" />
+    <Property Name="ESTADO" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TIPO_NOMINA">
+    <Key>
+      <PropertyRef Name="ID_TI" />
+    </Key>
+    <Property Name="ID_TI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TP_DEDUCCIONES">
+    <Key>
+      <PropertyRef Name="ID_TPDEDU" />
+    </Key>
+    <Property Name="ID_TPDEDU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DEPENDE_SALARIO" Type="nvarchar" MaxLength="30" />
+    <Property Name="ESTADO" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TRANSACCION">
+    <Key>
+      <PropertyRef Name="ID_TRANS" />
+    </Key>
+    <Property Name="ID_TRANS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO_TRANSACCION" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_ID_DEDU">
+    <End Role="TP_DEDUCCIONES" Type="Self.TP_DEDUCCIONES" Multiplicity="1" />
+    <End Role="RG_TRANSACCIONES" Type="Self.RG_TRANSACCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TP_DEDUCCIONES">
+        <PropertyRef Name="ID_TPDEDU" />
+      </Principal>
+      <Dependent Role="RG_TRANSACCIONES">
+        <PropertyRef Name="ID_DEDUCCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EMPL">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="RG_TRANSACCIONES" Type="Self.RG_TRANSACCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLE" />
+      </Principal>
+      <Dependent Role="RG_TRANSACCIONES">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ING">
+    <End Role="TIPO_INGRESO" Type="Self.TIPO_INGRESO" Multiplicity="1" />
+    <End Role="RG_TRANSACCIONES" Type="Self.RG_TRANSACCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_INGRESO">
+        <PropertyRef Name="ID_INGR" />
+      </Principal>
+      <Dependent Role="RG_TRANSACCIONES">
+        <PropertyRef Name="ID_INGRESO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_TRANS">
+    <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+    <End Role="RG_TRANSACCIONES" Type="Self.RG_TRANSACCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANSACCION">
+        <PropertyRef Name="ID_TRANS" />
+      </Principal>
+      <Dependent Role="RG_TRANSACCIONES">
+        <PropertyRef Name="ID_TIPO_TRANSACCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDEPAR">
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTO">
+        <PropertyRef Name="ID_DEPAR" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="ID_DEPARTAMENTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDEPUES">
+    <End Role="PUESTO" Type="Self.PUESTO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTO">
+        <PropertyRef Name="ID_PUES" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="ID_PUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDNOMINA">
+    <End Role="TIPO_NOMINA" Type="Self.TIPO_NOMINA" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_NOMINA">
+        <PropertyRef Name="ID_TI" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="ID_NOMINA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RES_AREA">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLE" />
+      </Principal>
+      <Dependent Role="DEPARTAMENTO">
+        <PropertyRef Name="RESPONSABLE_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FENIX_NOMINAModelStoreContainer">
+    <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUESTO" EntityType="Self.PUESTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RG_TRANSACCIONES" EntityType="Self.RG_TRANSACCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_INGRESO" EntityType="Self.TIPO_INGRESO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_NOMINA" EntityType="Self.TIPO_NOMINA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TP_DEDUCCIONES" EntityType="Self.TP_DEDUCCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANSACCION" EntityType="Self.TRANSACCION" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ID_DEDU" Association="Self.FK_ID_DEDU">
+      <End Role="TP_DEDUCCIONES" EntitySet="TP_DEDUCCIONES" />
+      <End Role="RG_TRANSACCIONES" EntitySet="RG_TRANSACCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EMPL" Association="Self.FK_ID_EMPL">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="RG_TRANSACCIONES" EntitySet="RG_TRANSACCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ING" Association="Self.FK_ID_ING">
+      <End Role="TIPO_INGRESO" EntitySet="TIPO_INGRESO" />
+      <End Role="RG_TRANSACCIONES" EntitySet="RG_TRANSACCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_TRANS" Association="Self.FK_ID_TRANS">
+      <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+      <End Role="RG_TRANSACCIONES" EntitySet="RG_TRANSACCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDEPAR" Association="Self.FK_IDEPAR">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDEPUES" Association="Self.FK_IDEPUES">
+      <End Role="PUESTO" EntitySet="PUESTO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDNOMINA" Association="Self.FK_IDNOMINA">
+      <End Role="TIPO_NOMINA" EntitySet="TIPO_NOMINA" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RES_AREA" Association="Self.FK_RES_AREA">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

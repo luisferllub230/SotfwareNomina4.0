@@ -1,0 +1,41 @@
+﻿@model List<CapaAdmin.Models.ViewModel.DataGestionDeducciones>
+@{
+    ViewBag.Title = "Deducciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Gest. de Deduciones</h5>
+    </div>
+    <div class="card-body col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Identificaador</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var i in Model) 
+                {
+                <tr>
+                    <th>@i.ID_TPDEDU</th>
+                    <th>@i.NOMBRE</th>
+                    <th>@i.DEPENDE_SALARIO</th>
+                    <th>@i.ESTADO</th>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
