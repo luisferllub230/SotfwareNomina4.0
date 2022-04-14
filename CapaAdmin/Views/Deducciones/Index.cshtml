@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CapaAdmin.Models.TP_DEDUCCIONES>
+
+@{
+    ViewBag.Title = "Mantenimiento de Gest. de Deducciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mt-5">
+    <h5 class="card-header">@ViewBag.Title</h5>
+    
+    <div class="card-body">
+        <a href="@Url.Action("Create", "Deducciones")" class="btn btn-success "><i class="bi bi-file-earmark-plus  px-1 h4"></i>Crear Nuevo</a>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NOMBRE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DEPENDE_SALARIO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ESTADO)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOMBRE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DEPENDE_SALARIO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ESTADO)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href="@Url.Action("Edit", "Deducciones", new { id = item.ID_TPDEDU })"><i class="bi bi-pencil-square"></i></a> |
+                        <a class="btn btn-primary" href="@Url.Action("Details", "Deducciones", new { id = item.ID_TPDEDU })"><i class="bi bi-ticket-detailed-fill"></i></a> |
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Deducciones", new { id = item.ID_TPDEDU })"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
