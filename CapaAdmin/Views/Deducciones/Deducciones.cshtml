@@ -22,20 +22,20 @@
             </thead>
             <tbody>
 
-                @foreach (var i in Model) 
+                @foreach (var i in Model)
                 {
-                <tr>
-                    <th>@i.ID_TPDEDU</th>
-                    <th>@i.NOMBRE</th>
-                    <th>@i.DEPENDE_SALARIO</th>
-                    <th>@i.ESTADO</th>
+                    <tr>
+                        <th>@i.ID_TPDEDU</th>
+                        <th>@i.NOMBRE</th>
+                        <th>@i.DEPENDE_SALARIO</th>
+                        <th>@i.ESTADO</th>
 
-                </tr>
+                    </tr>
                 }
             </tbody>
         </table>
 
+        <a href="@Url.Action("CrearDeduccion","Deducciones")" class="btn btn-success stretched-link">Crear</a>
 
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>

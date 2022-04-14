@@ -1,0 +1,27 @@
+﻿@model CapaAdmin.Models.ViewModel.DataGestionDeduccionesLlenar
+@{
+    ViewBag.Title = "CrearDeduccion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Deducciones", "Deducciones", FormMethod.Post))
+{
+<div class="row">
+    <div class="col-md-12">
+
+        @Html.LabelFor(d => d.NOMBRE)
+        @Html.TextBoxFor(d => d.NOMBRE, "", new { @class = "form-control" })
+        @Html.LabelFor(d => d.DEPENDE_SALARIO)
+        @Html.TextBoxFor(d => d.DEPENDE_SALARIO, "", new { @class = "form-control" })
+        @Html.LabelFor(d => d.ESTADO)
+        @Html.TextBoxFor(d => d.ESTADO, "", new { @class = "form-control" })
+        <br />
+        <div style="text-align:right;">
+            <input value="Guardar" class="btn btn-success" type="submit" />
+        </div>
+    </div>
+</div>
+}
