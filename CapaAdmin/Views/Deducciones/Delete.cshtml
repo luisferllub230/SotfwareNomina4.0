@@ -5,45 +5,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>TP_DEDUCCIONES</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </dt>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRE)
-        </dd>
+    <div class="m-3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DEPENDE_SALARIO)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DEPENDE_SALARIO)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DEPENDE_SALARIO)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ESTADO)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DEPENDE_SALARIO)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ESTADO)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ESTADO)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.ESTADO)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
+    </div>
+
+    <!--add alert message-->
+    <div class="card-footer">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <a href="@Url.Action("Index", "Deducciones")" class="btn btn-primary"><i class="bi bi-arrow-bar-left"></i></a>
+            <input type="submit" value="Delete" class="btn btn btn-danger" />
         </div>
-    }
+        }
+    </div>
 </div>
