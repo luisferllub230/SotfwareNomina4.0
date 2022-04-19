@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CapaAdmin.Models.TRANSACCION>
+
+@{
+    ViewBag.Title = "Transacciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
+
+    <div class="card-body">
+        <a href="@Url.Action("Create", "Transacciones")" class="btn btn-success "><i class="bi bi-file-earmark-plus  px-1 h4"></i>Crear Nuevo</a>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TIPO_TRANSACCION)
+                </th>
+                <th>
+                    Editar/Detalle/Eliminar
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TIPO_TRANSACCION)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href="@Url.Action("Edit", "Transacciones", new { id = item.ID_TRANS })"><i class="bi bi-pencil-square"></i></a> |
+                        <a class="btn btn-primary" href="@Url.Action("Details", "Transacciones", new { id = item.ID_TRANS})"><i class="bi bi-ticket-detailed-fill"></i></a> |
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Transacciones", new { id = item.ID_TRANS })"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

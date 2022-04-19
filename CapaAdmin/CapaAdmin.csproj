@@ -279,12 +279,16 @@
     <Content Include="Views\Consultas\ConsultaDepartamento.cshtml" />
     <Content Include="Views\Consultas\ConsultaPuesto.cshtml" />
     <Content Include="Views\Reportes\Reportes.cshtml" />
-    <Content Include="Views\Transacciones\Transacciones.cshtml" />
     <Content Include="Views\Deducciones\Create.cshtml" />
     <Content Include="Views\Deducciones\Delete.cshtml" />
     <Content Include="Views\Deducciones\Details.cshtml" />
     <Content Include="Views\Deducciones\Edit.cshtml" />
     <Content Include="Views\Deducciones\Index.cshtml" />
+    <Content Include="Views\Transacciones\Create.cshtml" />
+    <Content Include="Views\Transacciones\Delete.cshtml" />
+    <Content Include="Views\Transacciones\Details.cshtml" />
+    <Content Include="Views\Transacciones\Edit.cshtml" />
+    <Content Include="Views\Transacciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

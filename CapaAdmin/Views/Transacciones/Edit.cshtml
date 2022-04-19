@@ -1,0 +1,45 @@
+﻿@model CapaAdmin.Models.TRANSACCION
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID_TRANS)
+
+            <div class="form-group m-3">
+                <div class="m-1 text-black text-capitalize fw-bold">
+                    @Html.LabelFor(model => model.TIPO_TRANSACCION, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-12 ms-1">
+                    @Html.EditorFor(model => model.TIPO_TRANSACCION, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TIPO_TRANSACCION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-footer">
+                <a href="@Url.Action("Index", "Transacciones")" class="btn btn-primary"><i class="bi bi-arrow-bar-left"></i></a>
+                <input type="submit" value="Guardar" class="btn btn-success m-2" />
+
+            </div>
+        </div>
+    }
+</div>
