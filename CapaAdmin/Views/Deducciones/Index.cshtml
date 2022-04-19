@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card mt-5">
-    <h5 class="card-header">@ViewBag.Title</h5>
+<div class="card mt-5 border-dark">
+    <h5 class="card-header bg-dark bg-gradient text-white text-center">@ViewBag.Title</h5>
     
     <div class="card-body">
         <a href="@Url.Action("Create", "Deducciones")" class="btn btn-success "><i class="bi bi-file-earmark-plus  px-1 h4"></i>Crear Nuevo</a>
@@ -21,7 +21,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.ESTADO)
                 </th>
-                <th></th>
+                <th>
+                    Editar/Detalle/Eliminar
+                </th>
             </tr>
 
             @foreach (var item in Model)
