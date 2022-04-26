@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CapaAdmin.Controllers;
 
 namespace CapaLoggin.Controllers
 {
@@ -11,7 +12,9 @@ namespace CapaLoggin.Controllers
         public ActionResult Index()
         {
             return View();
+            
         }
+
 
         public ActionResult About()
         {

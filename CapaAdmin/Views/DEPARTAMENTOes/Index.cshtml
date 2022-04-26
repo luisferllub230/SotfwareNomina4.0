@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CapaAdmin.Models.DEPARTAMENTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UBICACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLEADO.CEDULA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UBICACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLEADO.CEDULA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_DEPAR }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_DEPAR }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_DEPAR })
+        </td>
+    </tr>
+}
+
+</table>
