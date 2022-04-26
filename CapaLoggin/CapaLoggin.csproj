@@ -180,6 +180,16 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaAdmin\CapaAdmin.csproj">
+      <Project>{d2ce5d52-2d2b-4127-8785-f0b9f55d8fd0}</Project>
+      <Name>CapaAdmin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaUsuario\CapaUsuario.csproj">
+      <Project>{30df5cc5-df58-433f-a8d5-0738fc43cee9}</Project>
+      <Name>CapaUsuario</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

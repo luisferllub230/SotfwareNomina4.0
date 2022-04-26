@@ -129,13 +129,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\DeduccionesController.cs" />
-    <Compile Include="Controllers\GestionController.cs" />
+    <Compile Include="Controllers\DEPARTAMENTOesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\TransaccionesController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -272,13 +269,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Usuario\IndexUsuario.cshtml" />
-    <Content Include="Views\Gestion\GestionEmpleados.cshtml" />
-    <Content Include="Views\Gestion\gestionDepartamentos.cshtml" />
-    <Content Include="Views\Gestion\GestionTPIngreso.cshtml" />
-    <Content Include="Views\Consultas\ConsultaDepartamento.cshtml" />
-    <Content Include="Views\Consultas\ConsultaPuesto.cshtml" />
-    <Content Include="Views\Reportes\Reportes.cshtml" />
     <Content Include="Views\Deducciones\Create.cshtml" />
     <Content Include="Views\Deducciones\Delete.cshtml" />
     <Content Include="Views\Deducciones\Details.cshtml" />
@@ -289,6 +279,11 @@
     <Content Include="Views\Transacciones\Details.cshtml" />
     <Content Include="Views\Transacciones\Edit.cshtml" />
     <Content Include="Views\Transacciones\Index.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Create.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Delete.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Details.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Edit.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
