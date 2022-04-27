@@ -4,16 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4f860a19e2aa4e5f935596bb69a0c36c" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="787ccb452c024d1e892513e0c002e40e" Name="Diagram1">
         <EntityTypeShape EntityType="FENIX_NOMINAModel.DEPARTAMENTO" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FENIX_NOMINAModel.EMPLEADO" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FENIX_NOMINAModel.LOGIN1" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="FENIX_NOMINAModel.PUESTO" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FENIX_NOMINAModel.RG_TRANSACCIONES" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FENIX_NOMINAModel.SOLICITUD" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="FENIX_NOMINAModel.SOLICITUD" Width="1.5" PointX="3.125" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FENIX_NOMINAModel.TIPO_INGRESO" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FENIX_NOMINAModel.TIPO_NOMINA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FENIX_NOMINAModel.TP_DEDUCCIONES" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="FENIX_NOMINAModel.TRANSACCION" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FENIX_NOMINAModel.TRANSACCION" Width="1.5" PointX="7.125" PointY="12.375" IsExpanded="true" />
         <AssociationConnector Association="FENIX_NOMINAModel.FK_IDEPAR" ManuallyRouted="false" />
         <AssociationConnector Association="FENIX_NOMINAModel.FK_RES_AREA" ManuallyRouted="false" />
         <AssociationConnector Association="FENIX_NOMINAModel.FK_ID_EMPL" ManuallyRouted="false" />

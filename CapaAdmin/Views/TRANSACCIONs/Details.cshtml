@@ -1,0 +1,27 @@
+﻿@model CapaAdmin.Models.TRANSACCION
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TRANSACCION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO_TRANSACCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_TRANSACCION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TRANS }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

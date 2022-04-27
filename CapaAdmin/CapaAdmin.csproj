@@ -129,10 +129,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DeduccionesController.cs" />
     <Compile Include="Controllers\DEPARTAMENTOesController.cs" />
+    <Compile Include="Controllers\EMPLEADOesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TransaccionesController.cs" />
+    <Compile Include="Controllers\LOGIN1Controller.cs" />
+    <Compile Include="Controllers\PUESTOesController.cs" />
+    <Compile Include="Controllers\RG_TRANSACCIONESController.cs" />
+    <Compile Include="Controllers\SOLICITUDsController.cs" />
+    <Compile Include="Controllers\TIPO_INGRESOController.cs" />
+    <Compile Include="Controllers\TIPO_NOMINAController.cs" />
+    <Compile Include="Controllers\TP_DEDUCCIONESController.cs" />
+    <Compile Include="Controllers\TRANSACCIONsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,6 +162,9 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EMPLEADO.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOGIN1.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PUESTO.cs">
@@ -202,8 +212,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DB.Context.cs</LastGenOutput>
       <DependentUpon>DB.edmx</DependentUpon>
+      <LastGenOutput>DB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -269,21 +279,56 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Deducciones\Create.cshtml" />
-    <Content Include="Views\Deducciones\Delete.cshtml" />
-    <Content Include="Views\Deducciones\Details.cshtml" />
-    <Content Include="Views\Deducciones\Edit.cshtml" />
-    <Content Include="Views\Deducciones\Index.cshtml" />
-    <Content Include="Views\Transacciones\Create.cshtml" />
-    <Content Include="Views\Transacciones\Delete.cshtml" />
-    <Content Include="Views\Transacciones\Details.cshtml" />
-    <Content Include="Views\Transacciones\Edit.cshtml" />
-    <Content Include="Views\Transacciones\Index.cshtml" />
+    <Content Include="Views\LOGIN1\Create.cshtml" />
+    <Content Include="Views\LOGIN1\Delete.cshtml" />
+    <Content Include="Views\LOGIN1\Details.cshtml" />
+    <Content Include="Views\LOGIN1\Edit.cshtml" />
+    <Content Include="Views\LOGIN1\Index.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Create.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Delete.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Details.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Edit.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Index.cshtml" />
+    <Content Include="Views\EMPLEADOes\Create.cshtml" />
+    <Content Include="Views\EMPLEADOes\Delete.cshtml" />
+    <Content Include="Views\EMPLEADOes\Details.cshtml" />
+    <Content Include="Views\EMPLEADOes\Edit.cshtml" />
+    <Content Include="Views\EMPLEADOes\Index.cshtml" />
+    <Content Include="Views\PUESTOes\Create.cshtml" />
+    <Content Include="Views\PUESTOes\Delete.cshtml" />
+    <Content Include="Views\PUESTOes\Details.cshtml" />
+    <Content Include="Views\PUESTOes\Edit.cshtml" />
+    <Content Include="Views\PUESTOes\Index.cshtml" />
+    <Content Include="Views\RG_TRANSACCIONES\Create.cshtml" />
+    <Content Include="Views\RG_TRANSACCIONES\Delete.cshtml" />
+    <Content Include="Views\RG_TRANSACCIONES\Details.cshtml" />
+    <Content Include="Views\RG_TRANSACCIONES\Edit.cshtml" />
+    <Content Include="Views\RG_TRANSACCIONES\Index.cshtml" />
+    <Content Include="Views\SOLICITUDs\Create.cshtml" />
+    <Content Include="Views\SOLICITUDs\Delete.cshtml" />
+    <Content Include="Views\SOLICITUDs\Details.cshtml" />
+    <Content Include="Views\SOLICITUDs\Edit.cshtml" />
+    <Content Include="Views\SOLICITUDs\Index.cshtml" />
+    <Content Include="Views\TIPO_INGRESO\Create.cshtml" />
+    <Content Include="Views\TIPO_INGRESO\Delete.cshtml" />
+    <Content Include="Views\TIPO_INGRESO\Details.cshtml" />
+    <Content Include="Views\TIPO_INGRESO\Edit.cshtml" />
+    <Content Include="Views\TIPO_INGRESO\Index.cshtml" />
+    <Content Include="Views\TIPO_NOMINA\Create.cshtml" />
+    <Content Include="Views\TIPO_NOMINA\Delete.cshtml" />
+    <Content Include="Views\TIPO_NOMINA\Details.cshtml" />
+    <Content Include="Views\TIPO_NOMINA\Edit.cshtml" />
+    <Content Include="Views\TIPO_NOMINA\Index.cshtml" />
+    <Content Include="Views\TP_DEDUCCIONES\Create.cshtml" />
+    <Content Include="Views\TP_DEDUCCIONES\Delete.cshtml" />
+    <Content Include="Views\TP_DEDUCCIONES\Details.cshtml" />
+    <Content Include="Views\TP_DEDUCCIONES\Edit.cshtml" />
+    <Content Include="Views\TP_DEDUCCIONES\Index.cshtml" />
+    <Content Include="Views\TRANSACCIONs\Create.cshtml" />
+    <Content Include="Views\TRANSACCIONs\Delete.cshtml" />
+    <Content Include="Views\TRANSACCIONs\Details.cshtml" />
+    <Content Include="Views\TRANSACCIONs\Edit.cshtml" />
+    <Content Include="Views\TRANSACCIONs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

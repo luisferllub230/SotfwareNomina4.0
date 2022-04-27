@@ -1,0 +1,51 @@
+﻿@model CapaAdmin.Models.PUESTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PUESTO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIVEL_RIESGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIVEL_RIESGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIVEL_MN_SALARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIVEL_MN_SALARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIVEL_MX_SALARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIVEL_MX_SALARIO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_PUES }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

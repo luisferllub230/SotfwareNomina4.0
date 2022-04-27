@@ -17,8 +17,8 @@ namespace CapaAdmin.Controllers
         // GET: DEPARTAMENTOes
         public ActionResult Index()
         {
-            var dEPARTAMENTOes = db.DEPARTAMENTOes.Include(d => d.EMPLEADO);
-            return View(dEPARTAMENTOes.ToList());
+            var dEPARTAMENTO = db.DEPARTAMENTO.Include(d => d.EMPLEADO1);
+            return View(dEPARTAMENTO.ToList());
         }
 
         // GET: DEPARTAMENTOes/Details/5
@@ -28,7 +28,7 @@ namespace CapaAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTOes.Find(id);
+            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTO.Find(id);
             if (dEPARTAMENTO == null)
             {
                 return HttpNotFound();
@@ -39,25 +39,25 @@ namespace CapaAdmin.Controllers
         // GET: DEPARTAMENTOes/Create
         public ActionResult Create()
         {
-            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADOes, "ID_EMPLE", "CEDULA");
+            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADO, "ID_EMPLE", "CEDULA");
             return View();
         }
 
         // POST: DEPARTAMENTOes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID_DEPAR,NOMBRE,UBICACION,RESPONSABLE_AREA")] DEPARTAMENTO dEPARTAMENTO)
         {
             if (ModelState.IsValid)
             {
-                db.DEPARTAMENTOes.Add(dEPARTAMENTO);
+                db.DEPARTAMENTO.Add(dEPARTAMENTO);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADOes, "ID_EMPLE", "CEDULA", dEPARTAMENTO.RESPONSABLE_AREA);
+            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADO, "ID_EMPLE", "CEDULA", dEPARTAMENTO.RESPONSABLE_AREA);
             return View(dEPARTAMENTO);
         }
 
@@ -68,18 +68,18 @@ namespace CapaAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTOes.Find(id);
+            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTO.Find(id);
             if (dEPARTAMENTO == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADOes, "ID_EMPLE", "CEDULA", dEPARTAMENTO.RESPONSABLE_AREA);
+            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADO, "ID_EMPLE", "CEDULA", dEPARTAMENTO.RESPONSABLE_AREA);
             return View(dEPARTAMENTO);
         }
 
         // POST: DEPARTAMENTOes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID_DEPAR,NOMBRE,UBICACION,RESPONSABLE_AREA")] DEPARTAMENTO dEPARTAMENTO)
@@ -90,7 +90,7 @@ namespace CapaAdmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADOes, "ID_EMPLE", "CEDULA", dEPARTAMENTO.RESPONSABLE_AREA);
+            ViewBag.RESPONSABLE_AREA = new SelectList(db.EMPLEADO, "ID_EMPLE", "CEDULA", dEPARTAMENTO.RESPONSABLE_AREA);
             return View(dEPARTAMENTO);
         }
 
@@ -101,7 +101,7 @@ namespace CapaAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTOes.Find(id);
+            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTO.Find(id);
             if (dEPARTAMENTO == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace CapaAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTOes.Find(id);
-            db.DEPARTAMENTOes.Remove(dEPARTAMENTO);
+            DEPARTAMENTO dEPARTAMENTO = db.DEPARTAMENTO.Find(id);
+            db.DEPARTAMENTO.Remove(dEPARTAMENTO);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
