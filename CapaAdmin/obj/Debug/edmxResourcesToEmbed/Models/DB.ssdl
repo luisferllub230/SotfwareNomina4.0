@@ -21,6 +21,16 @@
     <Property Name="ID_PUESTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_NOMINA" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="LOGIN1">
+    <Key>
+      <PropertyRef Name="ID_USER" />
+    </Key>
+    <Property Name="ID_USER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRES" Type="nvarchar" MaxLength="40" />
+    <Property Name="USUARIO" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CONTRASEÑA" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="TIPO_USUARIO" Type="nvarchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="PUESTO">
     <Key>
       <PropertyRef Name="ID_PUES" />
@@ -182,9 +192,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="RegistroUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="Correo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Passw" Type="nvarchar" Mode="In" />
+    <Parameter Name="Registrado" Type="bit" Mode="InOut" />
+    <Parameter Name="Mensaje" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="ValidarUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Correo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pass" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="FENIX_NOMINAModelStoreContainer">
     <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOGIN1" EntityType="Self.LOGIN1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PUESTO" EntityType="Self.PUESTO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RG_TRANSACCIONES" EntityType="Self.RG_TRANSACCIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="dbo" store:Type="Tables" />

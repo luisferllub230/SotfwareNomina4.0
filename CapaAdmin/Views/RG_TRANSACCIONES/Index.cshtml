@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CapaAdmin.Models.RG_TRANSACCIONES>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MONTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLEADO.CEDULA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TP_DEDUCCIONES.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO_INGRESO.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANSACCION.TIPO_TRANSACCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MONTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLEADO.CEDULA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TP_DEDUCCIONES.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPO_INGRESO.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANSACCION.TIPO_TRANSACCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_RGTRANS }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_RGTRANS }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_RGTRANS })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CapaAdmin.Models.PUESTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIVEL_RIESGO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIVEL_MN_SALARIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIVEL_MX_SALARIO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIVEL_RIESGO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIVEL_MN_SALARIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIVEL_MX_SALARIO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PUES }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_PUES }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PUES })
+        </td>
+    </tr>
+}
+
+</table>

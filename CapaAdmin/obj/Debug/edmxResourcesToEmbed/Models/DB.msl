@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FENIX_NOMINAModelStoreContainer" CdmEntityContainer="FENIX_NOMINAEntities">
-    <EntitySetMapping Name="DEPARTAMENTOes">
+    <EntitySetMapping Name="DEPARTAMENTO">
       <EntityTypeMapping TypeName="FENIX_NOMINAModel.DEPARTAMENTO">
         <MappingFragment StoreEntitySet="DEPARTAMENTO">
           <ScalarProperty Name="ID_DEPAR" ColumnName="ID_DEPAR" />
@@ -11,7 +11,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EMPLEADOes">
+    <EntitySetMapping Name="EMPLEADO">
       <EntityTypeMapping TypeName="FENIX_NOMINAModel.EMPLEADO">
         <MappingFragment StoreEntitySet="EMPLEADO">
           <ScalarProperty Name="ID_EMPLE" ColumnName="ID_EMPLE" />
@@ -24,7 +24,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PUESTOes">
+    <EntitySetMapping Name="LOGIN1">
+      <EntityTypeMapping TypeName="FENIX_NOMINAModel.LOGIN1">
+        <MappingFragment StoreEntitySet="LOGIN1">
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+          <ScalarProperty Name="CONTRASEÑA" ColumnName="CONTRASEÑA" />
+          <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUESTO">
       <EntityTypeMapping TypeName="FENIX_NOMINAModel.PUESTO">
         <MappingFragment StoreEntitySet="PUESTO">
           <ScalarProperty Name="ID_PUES" ColumnName="ID_PUES" />
@@ -49,7 +60,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SOLICITUDs">
+    <EntitySetMapping Name="SOLICITUD">
       <EntityTypeMapping TypeName="FENIX_NOMINAModel.SOLICITUD">
         <MappingFragment StoreEntitySet="SOLICITUD">
           <ScalarProperty Name="ID_NOTI" ColumnName="ID_NOTI" />
@@ -88,7 +99,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TRANSACCIONs">
+    <EntitySetMapping Name="TRANSACCION">
       <EntityTypeMapping TypeName="FENIX_NOMINAModel.TRANSACCION">
         <MappingFragment StoreEntitySet="TRANSACCION">
           <ScalarProperty Name="ID_TRANS" ColumnName="ID_TRANS" />
@@ -96,5 +107,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RegistroUser" FunctionName="FENIX_NOMINAModel.Store.RegistroUser" />
+    <FunctionImportMapping FunctionImportName="ValidarUser" FunctionName="FENIX_NOMINAModel.Store.ValidarUser" />
   </EntityContainerMapping>
 </Mapping>
