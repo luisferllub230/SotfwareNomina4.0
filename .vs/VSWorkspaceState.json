@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CapaAdmin",
+    "\\CapaAdmin\\Views",
+    "\\CapaAdmin\\Views\\TP_DEDUCCIONES"
   ],
+  "SelectedNode": "\\CapaAdmin\\Views\\TP_DEDUCCIONES\\Create.cshtml",
   "PreviewInSolutionExplorer": false
 }

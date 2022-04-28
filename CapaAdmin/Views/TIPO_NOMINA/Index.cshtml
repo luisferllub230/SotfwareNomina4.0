@@ -1,34 +1,46 @@
 ﻿@model IEnumerable<CapaAdmin.Models.TIPO_NOMINA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tipos de Nomina";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th></th>
-    </tr>
+<div class="card mt-3 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_TI }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_TI }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_TI })
-        </td>
-    </tr>
-}
+    <p class="m-2">
+        <a class="btn btn-success" href="@Url.Action("Create", "TIPO_NOMINA")"><i class="bi bi-person-plus @btnZise @btnPadding"></i></a>
+    </p>
+    <table class="table m-1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                Editar/Detalles/Borrar
+            </th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    <a class="btn btn-warning p-0 ps-2 pe-2 text-white" href="@Url.Action("Edit", "TIPO_NOMINA", new { id = item.ID_TI })"><i class="bi bi-pencil-square @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-primary p-0 ps-2 pe-2 text-white" href="@Url.Action("Details", "TIPO_NOMINA", new { id = item.ID_TI })"><i class="bi bi-ticket-detailed @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-danger p-0 ps-2 pe-2 text-white" href="@Url.Action("Delete", "TIPO_NOMINA", new { id = item.ID_TI})"><i class="bi bi-trash3 @btnZise @btnPadding"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
