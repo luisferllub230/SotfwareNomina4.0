@@ -3,49 +3,56 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
 }
 
-<h2>Details</h2>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-<div>
-    <h4>LOGIN1</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRES)
-        </dt>
+    <div class="m-3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRES)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRES)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRES)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.USUARIO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.USUARIO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.USUARIO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.USUARIO)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CONTRASEÑA)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CONTRASEÑA)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CONTRASEÑA)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CONTRASEÑA)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TIPO_USUARIO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TIPO_USUARIO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TIPO_USUARIO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TIPO_USUARIO)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+
+    <div class="card-footer">
+        <a class="btn btn-primary @btnZise @btnPadding" href="@Url.Action("Index", "LOGIN1")"><i class="bi bi-arrow-bar-left"></i></a>
+        <a class="btn btn-warning @btnZise @btnPadding" href="@Url.Action("Edit", "LOGIN1", new {id = Model.ID_USER})"><i class="bi bi-pencil-square"></i></a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_USER }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
