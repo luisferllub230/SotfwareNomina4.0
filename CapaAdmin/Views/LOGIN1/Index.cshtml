@@ -1,52 +1,64 @@
 ﻿@model IEnumerable<CapaAdmin.Models.LOGIN1>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Usuarios";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+}
 }
 
-<h2>Index</h2>
+<div class="card mt-3 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMBRES)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.USUARIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CONTRASEÑA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TIPO_USUARIO)
-        </th>
-        <th></th>
-    </tr>
+    <p class="m-2">
+        <a class="btn btn-success" href="@Url.Action("Create", "LOGIN1")"><i class="bi bi-person-plus @btnZise @btnPadding"></i></a>
+    </p>
+    <table class="table m-1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USUARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CONTRASEÑA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TIPO_USUARIO)
+            </th>
+            <th>
+                Editar/Detalles/Borrar
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMBRES)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.USUARIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CONTRASEÑA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TIPO_USUARIO)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_USER }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_USER }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_USER })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMBRES)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USUARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CONTRASEÑA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIPO_USUARIO)
+                </td>
+                <td>
+                    <a class="btn btn-warning p-0 ps-2 pe-2 text-white" href="@Url.Action("Edit", "LOGIN1", new { id = item.ID_USER })"><i class="bi bi-pencil-square @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-primary p-0 ps-2 pe-2 text-white" href="@Url.Action("Details", "LOGIN1", new { id = item.ID_USER })"><i class="bi bi-ticket-detailed @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-danger p-0 ps-2 pe-2 text-white" href="@Url.Action("Delete", "LOGIN1", new { id = item.ID_USER})"><i class="bi bi-trash3 @btnZise @btnPadding"></i></a>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

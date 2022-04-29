@@ -1,51 +1,57 @@
 ﻿@model CapaAdmin.Models.SOLICITUD
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles de la Solicitud";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+
 }
 
-<h2>Details</h2>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-<div>
-    <h4>SOLICITUD</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </dt>
+    <div class="m-3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRE)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.APELLIDO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.APELLIDO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.APELLIDO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.APELLIDO)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TITULO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TITULO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TITULO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TITULO)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MENSAJE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MENSAJE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MENSAJE)
+            </dd>
+        </dl>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MENSAJE)
-        </dd>
-
-    </dl>
+    <div class="card-footer">
+        <a class="btn btn-primary @btnZise @btnPadding" href="@Url.Action("Index", "SOLICITUDs")"><i class="bi bi-arrow-bar-left"></i></a>
+        <a class="btn btn-warning @btnZise @btnPadding" href="@Url.Action("Edit", "SOLICITUDs", new {id = Model.ID_NOTI})"><i class="bi bi-pencil-square"></i></a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_NOTI }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

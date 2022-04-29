@@ -1,86 +1,91 @@
 ﻿@model CapaAdmin.Models.RG_TRANSACCIONES
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar tranasaccion";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
 }
 
-<h2>Edit</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>RG_TRANSACCIONES</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_RGTRANS)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_EMPLEADO, "ID_EMPLEADO", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_EMPLEADO", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_EMPLEADO, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_INGRESO, "ID_INGRESO", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_INGRESO", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_INGRESO, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_DEDUCCION, "ID_DEDUCCION", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_DEDUCCION", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_DEDUCCION, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_TIPO_TRANSACCION, "ID_TIPO_TRANSACCION", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_TIPO_TRANSACCION", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_TIPO_TRANSACCION, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FECHA, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FECHA, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FECHA, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MONTO, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ESTADO, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ESTADO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ESTADO, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID_RGTRANS)
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_EMPLEADO, "ID_EMPLEADO", htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.DropDownList("ID_EMPLEADO", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_EMPLEADO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+           
+
+             <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_INGRESO, "ID_INGRESO", htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.DropDownList("ID_INGRESO", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_INGRESO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_DEDUCCION, "ID_DEDUCCION", htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.DropDownList("ID_DEDUCCION", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_DEDUCCION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_TIPO_TRANSACCION, "ID_TIPO_TRANSACCION", htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.DropDownList("ID_TIPO_TRANSACCION", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_TIPO_TRANSACCION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+             <div class="form-group m-3">
+                @Html.LabelFor(model => model.FECHA, htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.FECHA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FECHA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+             <div class="form-group m-3">
+                @Html.LabelFor(model => model.MONTO, htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.MONTO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MONTO, "", new { @class = "text-danger" })
+                </div>
+             </div>
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.ESTADO, htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.ESTADO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ESTADO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group card-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-primary @btnZise @btnPadding" href="@Url.Action("Index", "RG_TRANSACCIONES")"><i class="bi bi-arrow-bar-left"></i></a>
+                    <input type="submit" value="Guardar" class="btn btn-success @btnZise @btnPadding" />
+                </div>
+            </div>
+        </div>
+    }
 </div>

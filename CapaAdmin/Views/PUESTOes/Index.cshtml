@@ -1,52 +1,67 @@
 ﻿@model IEnumerable<CapaAdmin.Models.PUESTO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Puestos";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NIVEL_RIESGO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NIVEL_MN_SALARIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NIVEL_MX_SALARIO)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIVEL_RIESGO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIVEL_MN_SALARIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIVEL_MX_SALARIO)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PUES }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_PUES }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PUES })
-        </td>
-    </tr>
-}
+<div class="card mt-3 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-</table>
+    <p class="m-2">
+        <a class="btn btn-success" href="@Url.Action("Create", "PUESTOes")"><i class="bi bi-person-plus @btnZise @btnPadding"></i></a>
+    </p>
+    <table class="table m-1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIVEL_RIESGO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIVEL_MN_SALARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIVEL_MX_SALARIO)
+            </th>
+            <th>
+                Editar/Detalles/Borrar
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMBRE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NIVEL_RIESGO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NIVEL_MN_SALARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NIVEL_MX_SALARIO)
+                </td>
+                <td>
+
+                    <a class="btn btn-warning p-0 ps-2 pe-2 text-white" href="@Url.Action("Edit", "PUESTOes", new { id = item.ID_PUES })"><i class="bi bi-pencil-square @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-primary p-0 ps-2 pe-2 text-white" href="@Url.Action("Details", "PUESTOes", new { id = item.ID_PUES})"><i class="bi bi-ticket-detailed @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-danger p-0 ps-2 pe-2 text-white" href="@Url.Action("Delete", "PUESTOes", new { id = item.ID_PUES })"><i class="bi bi-trash3 @btnZise @btnPadding"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

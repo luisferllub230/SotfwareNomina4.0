@@ -1,43 +1,50 @@
 ﻿@model CapaAdmin.Models.TP_DEDUCCIONES
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles de la Deduccion";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
 }
 
-<h2>Details</h2>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-<div>
-    <h4>TP_DEDUCCIONES</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </dt>
+    <div class="m-3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRE)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DEPENDE_SALARIO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DEPENDE_SALARIO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DEPENDE_SALARIO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DEPENDE_SALARIO)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ESTADO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ESTADO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ESTADO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ESTADO)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+
+    <div class="card-footer">
+        <a class="btn btn-primary @btnZise @btnPadding" href="@Url.Action("Index", "TP_DEDUCCIONES")"><i class="bi bi-arrow-bar-left"></i></a>
+        <a class="btn btn-warning @btnZise @btnPadding" href="@Url.Action("Edit", "TP_DEDUCCIONES", new {id = Model.ID_TPDEDU})"><i class="bi bi-pencil-square"></i></a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TPDEDU }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

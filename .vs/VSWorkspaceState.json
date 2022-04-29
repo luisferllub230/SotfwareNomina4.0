@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\CapaAdmin",
-    "\\CapaAdmin\\App_Start"
+    "\\CapaAdmin\\Views",
+    "\\CapaAdmin\\Views\\TP_DEDUCCIONES"
   ],
-  "SelectedNode": "\\CapaAdmin\\App_Start\\BundleConfig.cs",
+  "SelectedNode": "\\CapaAdmin\\Views\\TP_DEDUCCIONES\\Create.cshtml",
   "PreviewInSolutionExplorer": false
 }

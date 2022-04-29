@@ -1,81 +1,89 @@
 ﻿@model CapaAdmin.Models.RG_TRANSACCIONES
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Borrar Registro";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>RG_TRANSACCIONES</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA)
-        </dt>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FECHA)
-        </dd>
+    <div>
+        <dl class="dl-horizontal m-3">
+            <dt>
+                @Html.DisplayNameFor(model => model.FECHA)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MONTO)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FECHA)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MONTO)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MONTO)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ESTADO)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MONTO)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ESTADO)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ESTADO)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EMPLEADO.CEDULA)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ESTADO)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EMPLEADO.CEDULA)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EMPLEADO.CEDULA)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TP_DEDUCCIONES.NOMBRE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EMPLEADO.CEDULA)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TP_DEDUCCIONES.NOMBRE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TP_DEDUCCIONES.NOMBRE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TIPO_INGRESO.NOMBRE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TP_DEDUCCIONES.NOMBRE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TIPO_INGRESO.NOMBRE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TIPO_INGRESO.NOMBRE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TRANSACCION.TIPO_TRANSACCION)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TIPO_INGRESO.NOMBRE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TRANSACCION.TIPO_TRANSACCION)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TRANSACCION.TIPO_TRANSACCION)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.TRANSACCION.TIPO_TRANSACCION)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color card-footer">
+                <a class="btn btn-primary @btnZise @btnPadding" href="@Url.Action("Index", "RG_TRASACCIONES")"><i class="bi bi-arrow-bar-left"></i></a>
+                <input type="submit" value="Borrar" class="btn btn-success @btnZise @btnPadding" />
+            </div>
+        }
+    </div>
 </div>

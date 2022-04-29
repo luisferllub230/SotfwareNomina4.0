@@ -1,64 +1,77 @@
 ﻿@model IEnumerable<CapaAdmin.Models.EMPLEADO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Empleado";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+
 }
 
-<h2>Index</h2>
+<div class="card mt-3 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CEDULA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SALARIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DEPARTAMENTO.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PUESTO.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TIPO_NOMINA.Nombre)
-        </th>
-        <th></th>
-    </tr>
+    <p class="m-2">
+        <a class="btn btn-success" href="@Url.Action("Create", "EMPLEADOes")"><i class="bi bi-person-plus @btnZise @btnPadding"></i></a>
+    </p>
+    <table class="table m-1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CEDULA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SALARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DEPARTAMENTO.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PUESTO.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TIPO_NOMINA.Nombre)
+            </th>
+            <th>
+                Editar/Detalles/Borrar
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CEDULA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SALARIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DEPARTAMENTO.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PUESTO.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TIPO_NOMINA.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_EMPLE }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_EMPLE }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_EMPLE })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.CEDULA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SALARIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DEPARTAMENTO.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PUESTO.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TIPO_NOMINA.Nombre)
+            </td>
+                <td>
 
-</table>
+                    <a class="btn btn-warning p-0 ps-2 pe-2 text-white" href="@Url.Action("Edit", "EMPLEADOes", new { id = item.ID_EMPLE })"><i class="bi bi-pencil-square @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-primary p-0 ps-2 pe-2 text-white" href="@Url.Action("Details", "EMPLEADOes", new { id = item.ID_EMPLE})"><i class="bi bi-ticket-detailed @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-danger p-0 ps-2 pe-2 text-white" href="@Url.Action("Delete", "EMPLEADOes", new { id = item.ID_EMPLE })"><i class="bi bi-trash3 @btnZise @btnPadding"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

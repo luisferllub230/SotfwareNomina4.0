@@ -3,68 +3,81 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+
 }
 
-<h2>Index</h2>
+<div class="card mt-3 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MONTO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ESTADO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMPLEADO.CEDULA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TP_DEDUCCIONES.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TIPO_INGRESO.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TRANSACCION.TIPO_TRANSACCION)
-        </th>
-        <th></th>
-    </tr>
+    <p class="m-2">
+        <a class="btn btn-success" href="@Url.Action("Create", "RG_TRANSACCIONES")"><i class="bi bi-person-plus @btnZise @btnPadding"></i></a>
+    </p>
+    <table class="table m-1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MONTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ESTADO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMPLEADO.CEDULA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TP_DEDUCCIONES.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TIPO_INGRESO.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TRANSACCION.TIPO_TRANSACCION)
+            </th>
+            <th>
+                Editar/Detalles/Borrar
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MONTO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ESTADO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMPLEADO.CEDULA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TP_DEDUCCIONES.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TIPO_INGRESO.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TRANSACCION.TIPO_TRANSACCION)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_RGTRANS }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_RGTRANS }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_RGTRANS })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FECHA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MONTO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ESTADO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMPLEADO.CEDULA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TP_DEDUCCIONES.NOMBRE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIPO_INGRESO.NOMBRE)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRANSACCION.TIPO_TRANSACCION)
+                <td>
 
-</table>
+                    <a class="btn btn-warning p-0 ps-2 pe-2 text-white" href="@Url.Action("Edit", "RG_TRANSACCIONES", new { id = item.ID_RGTRANS })"><i class="bi bi-pencil-square @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-primary p-0 ps-2 pe-2 text-white" href="@Url.Action("Details", "RG_TRANSACCIONES", new { id = item.ID_RGTRANS })"><i class="bi bi-ticket-detailed @btnZise @btnPadding"></i></a> |
+                    <a class="btn btn-danger p-0 ps-2 pe-2 text-white" href="@Url.Action("Delete", "RG_TRANSACCIONES", new { id = item.ID_RGTRANS })"><i class="bi bi-trash3 @btnZise @btnPadding"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
