@@ -3,74 +3,73 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var btnZise = "h4";
+    var btnPadding = "pt-1 pb-1";
+
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>EMPLEADO</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_EMPLE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ID_EMPLE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID_EMPLE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CEDULA, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CEDULA, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CEDULA, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SALARIO, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SALARIO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SALARIO, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_DEPARTAMENTO, "ID_DEPARTAMENTO", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_DEPARTAMENTO", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_DEPARTAMENTO, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_NOMINA, "ID_NOMINA", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_NOMINA", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_NOMINA, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+<div class="card mt-5 border-dark">
+    <div class="card-header bg-dark bg-gradient">
+        <h4 class="text-center text-white">
+            @ViewBag.Title
+        </h4>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_EMPLE, htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.ID_EMPLE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ID_EMPLE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.SALARIO, htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.SALARIO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SALARIO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+           <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_DEPARTAMENTO, "ID_DEPARTAMENTO", htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.DropDownList("ID_DEPARTAMENTO", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_DEPARTAMENTO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group m-3">
+                @Html.LabelFor(model => model.ID_NOMINA, "ID_NOMINA", htmlAttributes: new { @class = "control-label col-md-2 fw-bold mb-1" })
+                <div class="col-md-12">
+                    @Html.DropDownList("ID_NOMINA", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_NOMINA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group card-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-primary @btnZise @btnPadding" href="@Url.Action("Index", "EMPLEADOes")"><i class="bi bi-arrow-bar-left"></i></a>
+                    <input type="submit" value="Create" class="btn btn-success @btnZise @btnPadding" />
+                </div>
+            </div>
+        </div>
+    }
 </div>
