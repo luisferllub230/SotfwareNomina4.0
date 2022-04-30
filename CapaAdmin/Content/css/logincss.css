@@ -1,0 +1,49 @@
+﻿#particles-js {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background-color: rgb(233, 230, 230);
+}
+
+.conte-login {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    position: relative;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+    .login .img-login {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login .login-from {
+        padding: 1rem;
+        color: rgb(0, 0, 0);
+    }
+
+        .login .login-from .btn-login {
+            width: 100%;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .login .login-from .btn-r {
+            width: 100%;
+        }
